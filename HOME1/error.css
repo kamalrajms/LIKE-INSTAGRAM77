@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+.back>svg{
+    height: 45px;
+    width: 45px;
+    padding: 10px;
+    border-radius: 50%;
+  border: 2px solid black;
+    fill: white;
+    
+}
+.back{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin:30px 0 0 30px;
+}
+.back-btn>a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error>img{
+    height: 500px;
+}
+
+/* ============================= */
+/* Default (Desktop) Styles */
+/* ============================= */
+
+.error > img {
+    height: 500px;
+    max-width: 100%;
+}
+
+/* ============================= */
+/* Tablet Devices (max-width: 992px) */
+/* ============================= */
+
+@media (max-width: 992px) {
+
+    .back {
+        margin: 20px;
+    }
+
+    .back > svg {
+        height: 40px;
+        width: 40px;
+        padding: 8px;
+    }
+
+    .back-btn > a {
+        font-size: 20px;
+    }
+
+    .error > img {
+        height: 400px;
+    }
+
+    .error > p {
+        font-size: 20px;
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+/* ============================= */
+/* Mobile Devices (max-width: 576px) */
+/* ============================= */
+
+@media (max-width: 576px) {
+
+    .back {
+        margin: 15px;
+        gap: 6px;
+    }
+
+    .back > svg {
+        height: 35px;
+        width: 35px;
+        padding: 6px;
+    }
+
+    .back-btn > a {
+        font-size: 18px;
+    }
+
+    .error > img {
+        height: auto;
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .error > p {
+        font-size: 16px;
+        padding: 0 15px;
+        text-align: center;
+    }
+}

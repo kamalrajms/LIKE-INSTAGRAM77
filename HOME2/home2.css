@@ -1,0 +1,176 @@
+
+
+:root{
+--primary:#1e3eb3;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
+.social-section{
+width:100%;
+padding:120px 20px;
+background:#f5f7ff;
+text-align:center;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.title{
+font-size:70px;
+font-weight:700;
+color:#c9d0ff;
+margin-bottom:70px;
+letter-spacing:3px;
+animation:fadeUp 1s ease;
+}
+
+.features{
+display:flex;
+justify-content:center;
+gap:60px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.feature-box{
+text-decoration:none;
+display:flex;
+flex-direction:column;
+align-items:center;
+transition:.4s;
+animation:fadeUp 1.2s ease;
+}
+
+.icon{
+width:90px;
+height:90px;
+border-radius:50%;
+background:linear-gradient(135deg,#1e3eb3,#4f7cff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:.4s;
+}
+
+.feature-box p{
+margin-top:15px;
+font-size:18px;
+color:#555;
+}
+
+.feature-box:hover .icon{
+transform:translateY(-8px) scale(1.1);
+box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.subtitle{
+margin-top:40px;
+font-size:28px;
+color:#a0a0a0;
+animation:fadeUp 1.4s ease;
+}
+
+.counter{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:12px;
+}
+
+.counter span{
+font-size:42px;
+font-weight:600;
+color:var(--primary);
+background:white;
+padding:10px 16px;
+border-radius:6px;
+box-shadow:0 5px 12px rgba(0,0,0,0.1);
+animation:pop 1.5s infinite alternate;
+}
+
+.signup{
+margin-top:10px;
+color:#777;
+}
+
+/* Animations */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes pop{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.title{
+font-size:50px;
+}
+
+.features{
+gap:40px;
+}
+
+.icon{
+width:80px;
+height:80px;
+font-size:26px;
+}
+
+}
+
+@media(max-width:600px){
+
+.title{
+font-size:36px;
+}
+
+.features{
+flex-direction:column;
+gap:30px;
+}
+
+.counter span{
+font-size:30px;
+padding:8px 12px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+

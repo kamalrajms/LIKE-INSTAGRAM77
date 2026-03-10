@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialConnect - Connect with the world</title>
+    <link rel="stylesheet" href="./HOME1/style.css">
+    <link rel="stylesheet" href="./HOME1/headerFooter1.css">
+    <!-- <link rel="stylesheet" href="./HOME1/headerFooter1.css"> -->
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-heading">
+            <div class="header-image">
+                <a href="./index.html" class="header-image-link">
+                    <img src="./HOME1/PHOTO1/stackly_logo_transparent.webp" alt="Stackly Logo" class="header-logo">
+                </a>
+            </div>
+
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li class="header-nav-item header-home-menu">
+                        <a href="./index.html" class="header-nav-link header-home-down">
+                            <p class="header-home-text">HOME</p>
+                            <svg class="header-dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <path
+                                    d="M169.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 306.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                            </svg>
+                        </a>
+                        <ul class="header-dropdown-menu" id="header-option">
+                            <li><a href="./index.html" class="header-dropdown-link">Home
+                                    1</a></li>
+                            <li><a href="./HOME2/home2.html" class="header-dropdown-link">Home
+                                    2</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="./HOME1//about1.html" class="header-nav-link">ABOUT</a></li>
+                    <li><a href="./HOME1/feature1.html" class="header-nav-link">FEATURES</a>
+                    </li>
+                    <li><a href="./HOME1/dashboard1.html" class="header-nav-link">DASHBOARD</a>
+                    </li>
+                    <li><a href="./HOME1//contact1.html" class="header-nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-menu-toggle">
+                <!-- Hamburger Icon -->
+                <svg class="header-menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                    <path d="M96 160h448M96 320h448M96 480h448" stroke="white" stroke-width="60"
+                        stroke-linecap="round" />
+                </svg>
+
+                <!-- Close Icon -->
+                <svg class="header-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                        d="M55.1 73.1 73.1 55.1 192 174l118.9-118.9 18 18L210 192l118.9 118.9-18 18L192 210 73.1 328.9l-18-18L174 192 55.1 73.1z" />
+                </svg>
+            </div>
+
+            <div class="header-buttons">
+                <a href="./HOME1/login.html" class="header-login-btn">Login</a>
+            </div>
+        </div>
+
+    </header>
+    <aside class="header-mobile-aside">
+        <nav>
+            <ul class="header-mobile-nav-list header-mobile-nav-item ">
+                <li class="home-menu ">
+                    <a href="./index.html" class="home-down header-mobile-nav-link header-mobile-nav-display-row">
+                        <p>HOME</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--he!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                            <path
+                                d="M169.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 306.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                        </svg>
+                    </a>
+                    <ul id="option2" class="header-mobile-option-ul">
+                        <li><a href="./index.html" class="header-mobile-nav-link ">Home 1</a></li>
+                        <li><a href="./HOME2/home2.html" class="header-mobile-nav-link ">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="./HOME1/about1.html" class="header-mobile-nav-link ">ABOUT</a></li>
+                <li><a href="./HOME1/feature1.html" class="header-mobile-nav-link ">FEATURES</a></li>
+                <li><a href="./HOME1/dashboard1.html" class="header-mobile-nav-link ">DASHBOARD</a></li>
+                <li><a href="./HOME1/contact1.html" class="header-mobile-nav-link ">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div style="margin-top: 30px;margin-left: 10px;">
+
+            <a href="./HOME1/login.html" class="header-mobile-login-btn">Login</a>
+        </div>
+
+
+
+    </aside>
+
+
+
+    <!-- Mobile Navigation (Hidden by default) -->
+    <div class="mobile-nav">
+        <a href="#" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>Friends</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Create</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-bell"></i>
+            <span>Alerts</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="sidebar-profile-card">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile" class="sidebar-profile-img">
+                <div class="sidebar-profile-info">
+                    <h3>Alex Johnson</h3>
+                    <p><i class="fas fa-circle" style="color: #2ecc71; font-size: 10px;"></i> Online</p>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <a href="./HOME1/error.html" class="menu-item active">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News Feed</span>
+                </a>
+                <a href="./HOME1/error.html" class="menu-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                    <!-- <span class="menu-badge"></span> -->
+                </a>
+                <a href="./HOME1/error.html" class="menu-item">
+                    <i class="fas fa-video"></i>
+                    <span>Watch</span>
+                </a>
+                <a href="./HOME1/error.html" class="menu-item">
+                    <i class="fas fa-store"></i>
+                    <span>Marketplace</span>
+                </a>
+                <a href="./HOME1/error.html" class="menu-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Events</span>
+                </a>
+                <a href="./HOME1/error.html" class="menu-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="./HOME1/error.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>© 2024 SocialConnect</p>
+                <div class="footer-links">
+                    <a href="./HOME1/error.html">Privacy</a> • <a href="./HOME1/error.html">Terms</a> • <a
+                        href="./HOME1/error.html">Help</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area (Feed) -->
+        <main class="main-content">
+            <!-- Stories Section -->
+            <section class="stories-section">
+                <h2 class="section-title">Stories</h2>
+                <div class="stories-container">
+                    <div class="story create-story">
+                        <div class="story-bg"></div>
+                        <div class="create-story-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <p>Create Story</p>
+                    </div>
+                    <div class="story">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Story" class="story-img">
+                        <div class="story-user">
+                            <img src="./HOME1/PHOTO1/loading2.webp" alt="User">
+                            <span>Emma</span>
+                        </div>
+                    </div>
+                    <div class="story">
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Story" class="story-img">
+                        <div class="story-user">
+                            <img src="./HOME1/PHOTO1/loading3.webp" alt="User">
+                            <span>Mike</span>
+                        </div>
+                    </div>
+                    <div class="story">
+                        <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Story" class="story-img">
+                        <div class="story-user">
+                            <img src="./HOME1/PHOTO1/loading5.webp" alt="User">
+                            <span>Sarah</span>
+                        </div>
+                    </div>
+                    <div class="story">
+                        <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Story" class="story-img">
+                        <div class="story-user">
+                            <img src="./line3.webp" alt="User">
+                            <span>James</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Create Post Section -->
+            <div class="create-post-card">
+                <div class="post-input-area">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User" class="user-avatar">
+                    <input type="text" placeholder="What's on your mind, Alex?">
+                </div>
+                <div class="post-actions">
+                    <a href="./HOME1/error.html" class="post-action-btn live" style="text-decoration: none;">
+                        <i class="fas fa-video"></i>
+                        <span>Live Video</span>
+                    </a>
+                    <a href="./HOME1/error.html" class="post-action-btn photo" style="text-decoration: none;">
+                        <i class="fas fa-image"></i>
+                        <span>Photo/Video</span>
+                    </a>
+                    <a href="./HOME1/error.html" class="post-action-btn feeling" style="text-decoration: none;">
+                        <i class="fas fa-smile"></i>
+                        <span>Feeling/Activity</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feed Filters -->
+            <div class="feed-filters">
+                <a href="./HOME1/error.html" class="filter-btn active" style="text-decoration: none;">Latest</a>
+                <a href="./HOME1/error.html" class="filter-btn" style="text-decoration: none;">Popular</a>
+                <a href="./HOME1/error.html" class="filter-btn" style="text-decoration: none;">Following</a>
+                <a href="./HOME1/error.html" class="filter-btn" style="text-decoration: none;">Trending</a>
+            </div>
+
+            <!-- Post 1 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User" class="post-avatar">
+                        <div class="post-info">
+                            <h3>John Doe <span class="verified-badge"><i class="fas fa-check-circle"></i></span></h3>
+                            <span class="post-time"><i class="far fa-clock"></i> 2 hours ago</span>
+                        </div>
+                    </div>
+                    <button class="post-options"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+
+                <div class="post-content">
+                    <p>Just launched my new project! After months of hard work, I'm excited to share this with everyone.
+                        Check it out and let me know what you think!</p>
+                    <div class="post-media">
+                        <img src="./HOME1/PHOTO1/line1.webp" alt="Project screenshot" class="post-image">
+                    </div>
+                </div>
+
+                <div class="post-stats">
+                    <div class="reactions">
+                        <span class="reaction-icons">
+                            <i class="fas fa-thumbs-up" style="color: #26a9e0;"></i>
+                            <i class="fas fa-heart" style="color: #f14d76;"></i>
+                        </span>
+                        <span>124 likes</span>
+                    </div>
+                    <div class="post-stats-right">
+                        <span>24 comments</span>
+                        <span>12 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-actions-bottom">
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </a>
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none; ">
+                        <i class="fas fa-comment"></i>
+                        <span>Comment</span>
+                    </a>
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="./HOME1/PHOTO1/game motivation1.webp" alt="User" class="post-avatar">
+                        <div class="post-info">
+                            <h3>Sarah Smith</h3>
+                            <span class="post-time"><i class="far fa-clock"></i> 5 hours ago</span>
+                        </div>
+                    </div>
+                    <button class="post-options"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+
+                <div class="post-content">
+                    <p>Perfect evening for a beach walk! The sunset was absolutely breathtaking today. Nature never
+                        fails to amaze me! </p>
+                    <div class="post-media">
+
+                    </div>
+                </div>
+
+                <div class="post-stats">
+                    <div class="reactions">
+                        <span class="reaction-icons">
+                            <i class="fas fa-thumbs-up" style="color: #26a9e0;"></i>
+                            <i class="fas fa-heart" style="color: #f14d76;"></i>
+                        </span>
+                        <span>89 likes</span>
+                    </div>
+                    <div class="post-stats-right">
+                        <span>15 comments</span>
+                        <span>5 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-actions-bottom">
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </a>
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-comment"></i>
+                        <span>Comment</span>
+                    </a>
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="User" class="post-avatar">
+                        <div class="post-info">
+                            <h3>Mike Johnson <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                            </h3>
+                            <span class="post-time"><i class="far fa-clock"></i> 1 day ago</span>
+                        </div>
+                    </div>
+                    <button class="post-options"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+
+                <div class="post-content">
+                    <p>Check out this amazing new café I discovered! Best coffee in town The atmosphere is perfect
+                        for working or catching up with friends.</p>
+                    <div class="post-media">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600" alt="Coffee shop"
+                            class="post-image">
+                    </div>
+                </div>
+
+                <div class="post-stats">
+                    <div class="reactions">
+                        <span class="reaction-icons">
+                            <i class="fas fa-thumbs-up" style="color: #26a9e0;"></i>
+                        </span>
+                        <span>56 likes</span>
+                    </div>
+                    <div class="post-stats-right">
+                        <span>8 comments</span>
+                        <span>3 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-actions-bottom">
+                    <a href="./HOME1/error.html" class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </a>
+                    <a href="./HOME1/error.html"  class="post-action-bottom-btn" style="text-decoration: none;"> 
+                        <i class="fas fa-comment"></i>
+                        <span>Comment</span>
+                    </a>
+                    <a href="./HOME1/error.html"  class="post-action-bottom-btn" style="text-decoration: none;">
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Loading More Posts -->
+            <div class="loading-more">
+                <div class="spinner"></div>
+                <span>Loading more posts...</span>
+            </div>
+        </main>
+
+        <!--       
+        <aside class="right-sidebar">
+          
+            <div class="sidebar-widget">
+                <div class="widget-header">
+                    <h3>Suggested Friends</h3>
+                    <a href="#" class="see-all">See All</a>
+                </div>
+                <div class="friend-suggestions">
+                    <div class="friend-card">
+                        <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Friend">
+                        <div class="friend-info">
+                            <h4>Emma Watson</h4>
+                            <p>5 mutual friends</p>
+                        </div>
+                        <button class="add-friend-btn"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="Friend">
+                        <div class="friend-info">
+                            <h4>David Chen</h4>
+                            <p>8 mutual friends</p>
+                        </div>
+                        <button class="add-friend-btn"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://randomuser.me/api/portraits/women/7.jpg" alt="Friend">
+                        <div class="friend-info">
+                            <h4>Lisa Brown</h4>
+                            <p>3 mutual friends</p>
+                        </div>
+                        <button class="add-friend-btn"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="sidebar-widget">
+                <div class="widget-header">
+                    <h3>Trending Today</h3>
+                   
+                </div>
+                <div class="trending-list">
+                    <div class="trending-item">
+                        <span class="trending-category">Technology</span>
+                        <h4>#AIRevolution</h4>
+                        <span class="trending-posts">2.5k posts</span>
+                    </div>
+                    <div class="trending-item">
+                        <span class="trending-category">Music</span>
+                        <h4>NewAlbumRelease</h4>
+                        <span class="trending-posts">1.8k posts</span>
+                    </div>
+                    <div class="trending-item">
+                        <span class="trending-category">Sports</span>
+                        <h4>#ChampionshipFinal</h4>
+                        <span class="trending-posts">3.2k posts</span>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="sidebar-widget">
+                <div class="widget-header">
+                    <h3>Online Friends</h3>
+                    <span class="online-count">12 online</span>
+                </div>
+                <div class="online-friends">
+                    <div class="online-friend">
+                        <img src="https://randomuser.me/api/portraits/men/8.jpg" alt="Friend">
+                        <span class="online-indicator"></span>
+                        <p>Tom Wilson</p>
+                    </div>
+                    <div class="online-friend">
+                        <img src="https://randomuser.me/api/portraits/women/9.jpg" alt="Friend">
+                        <span class="online-indicator"></span>
+                        <p>Anna Lee</p>
+                    </div>
+                    <div class="online-friend">
+                        <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Friend">
+                        <span class="online-indicator"></span>
+                        <p>Chris Martin</p>
+                    </div>
+                </div>
+            </div>
+        </aside> -->
+        <aside class="right-sidebar">
+
+            <!-- Suggested Friends -->
+            <div class="sidebar-widget">
+                <div class="widget-header">
+                    <h3>Suggested Friends</h3>
+                    <!-- <a href="#" class="see-all">See All</a> -->
+                </div>
+
+                <div class="friend-card">
+                    <img src="https://randomuser.me/api/portraits/women/5.jpg">
+                    <div class="friend-info">
+                        <h4>Emma Watson</h4>
+                        <p>5 mutual friends</p>
+                    </div>
+                    <button class="add-friend-btn"><i class="fas fa-user-plus"></i></button>
+                </div>
+
+                <div class="friend-card">
+                    <img src="https://randomuser.me/api/portraits/men/6.jpg">
+                    <div class="friend-info">
+                        <h4>David Chen</h4>
+                        <p>8 mutual friends</p>
+                    </div>
+                    <button class="add-friend-btn"><i class="fas fa-user-plus"></i></button>
+                </div>
+
+                <div class="friend-card">
+                    <img src="https://randomuser.me/api/portraits/women/7.jpg">
+                    <div class="friend-info">
+                        <h4>Lisa Brown</h4>
+                        <p>3 mutual friends</p>
+                    </div>
+                    <button class="add-friend-btn"><i class="fas fa-user-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Trending -->
+            <div class="sidebar-widget">
+                <div class="widget-header">
+                    <h3>Trending Today</h3>
+                </div>
+
+                <div class="trending-item">
+                    <span>Technology</span>
+                    <h4>#AIRevolution</h4>
+                    <p>2.5k posts</p>
+                </div>
+
+                <div class="trending-item">
+                    <span>Music</span>
+                    <h4>#NewAlbumRelease</h4>
+                    <p>1.8k posts</p>
+                </div>
+
+                <div class="trending-item">
+                    <span>Sports</span>
+                    <h4>#ChampionshipFinal</h4>
+                    <p>3.2k posts</p>
+                </div>
+            </div>
+
+            <!-- Online Friends -->
+            <div class="sidebar-widget">
+                <div class="widget-header">
+                    <h3>Online Friends</h3>
+                    <span class="online-count">12 online</span>
+                </div>
+
+                <div class="online-friend">
+                    <img src="https://randomuser.me/api/portraits/men/8.jpg">
+                    <p>Tom Wilson</p>
+                </div>
+
+                <div class="online-friend">
+                    <img src="https://randomuser.me/api/portraits/women/9.jpg">
+                    <p>Anna Lee</p>
+                </div>
+
+                <div class="online-friend">
+                    <img src="https://randomuser.me/api/portraits/men/10.jpg">
+                    <p>Chris Martin</p>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col footer-about">
+                <div class="footer-logo">
+                    <a href="./index.html" class="footer-logo-link">
+                        <img src="./HOME1/PHOTO1/stackly_logo_transparent.webp" alt="Logo" class="footer-image">
+                    </a>
+                </div>
+
+                <p class="footer-about-text">
+                    We provide high-quality products with seamless online shopping
+                    experience. Fast delivery, secure payment and 24/7 support.
+                </p>
+
+                <div class="footer-social-icons">
+                    <a href="./HOME1/error.html" class="footer-social-link">
+                        <svg class="footer-social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path
+                                d="M80 299.3l0 212.7 116 0 0-212.7 86.5 0 18-97.8-104.5 0 0-34.6c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4 .4 37 1.2l0-88.7C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4l0 42.1-66 0 0 97.8 66 0z" />
+                        </svg>
+                    </a>
+
+                    <a href="./HOME1/error.html" class="footer-social-link">
+                        <svg class="footer-social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        </svg>
+                    </a>
+
+                    <a href="./HOME1/error.html" class="footer-social-link">
+                        <svg class="footer-social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                d="M100.3 448l-92.9 0 0-299.1 92.9 0 0 299.1zM53.8 108.1C24.1 108.1 0 83.5 0 53.8 0 39.5 5.7 25.9 15.8 15.8s23.8-15.8 38-15.8 27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3zM447.9 448l-92.7 0 0-145.6c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7l0 148.1-92.8 0 0-299.1 89.1 0 0 40.8 1.3 0c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3l0 164.3-.1 0z" />
+                        </svg>
+                    </a>
+                    <!-- 
+                    <a href="./error.html" class="footer-social-link">
+                        <svg class="footer-social-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z" />
+                        </svg>
+                    </a> -->
+                </div>
+
+                <!-- Shop Button -->
+                <a href="./HOME1/error.html" class="footer-shop-btn">Shop Now</a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h3 class="footer-col-title">Quick Links</h3>
+                <ul class="footer-links-list">
+                    <li class="footer-link-item"><a href="./index.html" class="footer-link">Home</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/about1.html" class="footer-link">About</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/feature1.html" class="footer-link">Features</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/dashboard1.html" class="footer-link">Dashboard</a>
+                    </li>
+                    <li class="footer-link-item"><a href="./HOME1/contact1.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Customer Service -->
+            <div class="footer-col">
+                <h3 class="footer-col-title">Support</h3>
+                <ul class="footer-links-list">
+                    <li class="footer-link-item"><a href="./HOME1/error.html" class="footer-link">My Account</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/error.html" class="footer-link">Help Center</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/error.html" class="footer-link">Safety</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/error.html" class="footer-link">Community Guidelines</a></li>
+                    <li class="footer-link-item"><a href="./HOME1/error.html" class="footer-link">Report</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-col footer-newsletter">
+                <h3 class="footer-col-title">Report</h3>
+                <form action="./HOME1/error.html" class="footer-newsletter-form">
+                    <input type="email" placeholder="Enter your email" required class="footer-newsletter-input">
+                    <button type="submit" class="footer-newsletter-btn">➤</button>
+                </form>
+
+                <p class="footer-newsletter-text">
+                    Subscribe to get latest deals and updates. No spam guaranteed.
+                </p>
+            </div>
+
+            <!-- Map -->
+            <div class="footer-col footer-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.1616098770783!2d78.17140487481913!3d11.682956588526354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1770871595262!5m2!1sen!2sin"
+                    class="footer-map-iframe" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2026 Shopora. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add a small JavaScript for mobile menu toggle -->
+    <!-- <script>
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
+            document.querySelector('.mobile-nav').classList.toggle('active');
+        });
+    </script> -->
+    <script src="./HOME1/script.js"></script>
+</body>
+
+</html>

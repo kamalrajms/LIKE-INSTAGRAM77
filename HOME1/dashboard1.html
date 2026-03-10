@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Dashboard</title>
+  <!-- Font Awesome Icons (v6 free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fc;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    /* all buttons / clickable items are <a> – style them as buttons */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* primary color usage */
+    .text-primary { color: #26a9e0; }
+    .bg-primary { background-color: #26a9e0; }
+    .border-primary { border-color: #26a9e0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #26a9e0;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1e8fc0;
+    }
+
+    .btn-outline {
+      border: 1px solid #e2e8f0;
+      background: white;
+    }
+    .btn-outline:hover {
+      border-color: #26a9e0;
+      color: #26a9e0;
+    }
+
+    .btn-ghost {
+      border: none;
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      background: #f1f5f9;
+    }
+
+    /* dashboard layout */
+    .dashboard {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* header */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      font-weight: 500;
+    }
+    .back-btn i {
+      font-size: 1rem;
+    }
+    .back-btn:hover {
+      border-color: #26a9e0;
+    }
+    .header-title h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #1e293b, #26a9e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .date-range {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .avatar a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* stat cards grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      background: #e6f3fc;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #26a9e0;
+      font-size: 1.5rem;
+    }
+    .stat-change {
+      font-size: 0.875rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 2rem;
+      background: #e6f7e6;
+      color: #10b981;
+    }
+    .stat-change.negative {
+      background: #fee9e7;
+      color: #f43f5e;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .stat-label {
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    .stat-detail-link {
+      font-size: 0.875rem;
+      color: #26a9e0;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+    }
+    .stat-detail-link:hover {
+      text-decoration: underline;
+    }
+
+    /* charts row */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .chart-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .chart-header h3 {
+      font-weight: 600;
+    }
+    .chart-container {
+      position: relative;
+      height: 250px;
+    }
+
+    /* platform grid */
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .platform-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: 0.2s;
+    }
+    .platform-card:hover {
+      box-shadow: 0 8px 20px rgba(38,169,224,0.15);
+    }
+    .platform-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .platform-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .platform-stats {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .platform-engagement {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin: 0.5rem 0;
+    }
+    .platform-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      background: #f1f5f9;
+      color: #1e293b;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .platform-btn:hover {
+      background: #26a9e0;
+      color: white;
+    }
+
+    /* recent posts */
+    .recent-posts {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .section-header h3 {
+      font-weight: 600;
+    }
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .post-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 0.75rem;
+      transition: 0.2s;
+    }
+    .post-item:hover {
+      background: #f1f5f9;
+    }
+    .post-platform i {
+      width: 24px;
+      text-align: center;
+      color: #26a9e0;
+    }
+    .post-content {
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+    .post-metrics {
+      display: flex;
+      gap: 1.5rem;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    .post-metrics span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .post-link a {
+      padding: 0.3rem 0.8rem;
+      border-radius: 2rem;
+      background: #e6f3fc;
+      color: #26a9e0;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .post-link a:hover {
+      background: #26a9e0;
+      color: white;
+    }
+
+    /* footer */
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid #e2e8f0;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .footer-links a:hover {
+      color: #26a9e0;
+    }
+
+    /* responsiveness */
+    @media (max-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+      .charts-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .header { flex-direction: column; align-items: flex-start; }
+      .header-right { width: 100%; justify-content: space-between; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+      .post-item {
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto auto;
+      }
+      .post-metrics { grid-column: span 3; justify-content: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .platforms-grid { grid-template-columns: 1fr; }
+      .post-metrics { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header with Back button -->
+    <div class="header">
+      <div class="header-left">
+        <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+        <div class="header-title">
+          <h1>Social Media Dashboard</h1>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="date-range">
+          <a href="#" class="btn btn-outline"><i class="far fa-calendar-alt"></i> Last 30 days <i class="fas fa-chevron-down"></i></a>
+        </div>
+        <div class="avatar">
+          <a href="#"><img src="https://i.pravatar.cc/40?img=7" alt="Profile"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards (4) -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-icon"><i class="fas fa-users"></i></span>
+          <span class="stat-change"><i class="fas fa-arrow-up"></i> +5.2%</span>
+        </div>
+        <div>
+          <div class="stat-number">1.2M</div>
+          <div class="stat-label">Total Followers</div>
+        </div>
+        <a href="./error.html" class="stat-detail-link">View details <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-icon"><i class="fas fa-heart"></i></span>
+          <span class="stat-change"><i class="fas fa-arrow-up"></i> +0.5%</span>
+        </div>
+        <div>
+          <div class="stat-number">3.8%</div>
+          <div class="stat-label">Engagement Rate</div>
+        </div>
+        <a href="./error.html" class="stat-detail-link">View details <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-icon"><i class="fas fa-pen"></i></span>
+          <span class="stat-change"><i class="fas fa-arrow-up"></i> +12</span>
+        </div>
+        <div>
+          <div class="stat-number">342</div>
+          <div class="stat-label">Total Posts</div>
+        </div>
+        <a href="./error.html" class="stat-detail-link">View details <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-icon"><i class="fas fa-chart-line"></i></span>
+          <span class="stat-change negative"><i class="fas fa-arrow-down"></i> -1.2%</span>
+        </div>
+        <div>
+          <div class="stat-number">890K</div>
+          <div class="stat-label">Reach</div>
+        </div>
+        <a href="" class="stat-detail-link">View details <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Followers Growth</h3>
+          <a href="./error.html" class="btn btn-ghost"><i class="fas fa-ellipsis-h"></i></a>
+        </div>
+        <div class="chart-container">
+          <canvas id="followersChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Engagement by Platform</h3>
+          <a href="./error.html" class="btn btn-ghost"><i class="fas fa-ellipsis-h"></i></a>
+        </div>
+        <div class="chart-container">
+          <canvas id="engagementChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform Overview -->
+    <div class="platforms-grid">
+      <div class="platform-card">
+        <div class="platform-icon" style="color:#1877f2;"><i class="fab fa-facebook"></i></div>
+        <div class="platform-name">Facebook</div>
+        <div class="platform-stats">548K</div>
+        <div class="platform-engagement">Eng. 2.1%</div>
+        <a href="./error.html " class="platform-btn">View</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon" style="color:#1da1f2;"><i class="fab fa-twitter"></i></div>
+        <div class="platform-name">Twitter</div>
+        <div class="platform-stats">312K</div>
+        <div class="platform-engagement">Eng. 1.8%</div>
+        <a href="./error.html " class="platform-btn">View</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon" style="color:#e4405f;"><i class="fab fa-instagram"></i></div>
+        <div class="platform-name">Instagram</div>
+        <div class="platform-stats">890K</div>
+        <div class="platform-engagement">Eng. 4.2%</div>
+        <a href="./error.html  " class="platform-btn">View</a>
+      </div>    
+      <div class="platform-card">
+        <div class="platform-icon" style="color:#0077b5;"><i class="fab fa-linkedin"></i></div>
+        <div class="platform-name">LinkedIn</div>
+        <div class="platform-stats">178K</div>
+        <div class="platform-engagement">Eng. 2.7%</div>
+        <a href="./error.html   " class="platform-btn">View</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon" style="color:#010101;"><i class="fab fa-tiktok"></i></div>
+        <div class="platform-name">TikTok</div>
+        <div class="platform-stats">1.1M</div>
+        <div class="platform-engagement">Eng. 5.8%</div>
+        <a href="./error.html " class="platform-btn">View</a>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="recent-posts">
+      <div class="section-header">
+        <h3>Recent Posts</h3>
+        <a href="./error.html" class="btn btn-outline">See all <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="posts-list">
+        <div class="post-item">
+          <div class="post-platform"><i class="fab fa-instagram"></i></div>
+          <div class="post-content">Behind the scenes of our latest shoot 📸</div>
+          <div class="post-metrics">
+            <span><i class="fas fa-heart"></i> 2.3K</span>
+            <span><i class="fas fa-comment"></i> 142</span>
+          </div>
+          <div class="post-link"><a href="./error.html">View</a></div>
+        </div>
+        <div class="post-item">
+          <div class="post-platform"><i class="fab fa-facebook"></i></div>
+          <div class="post-content">Product launch event recap – thank you all!</div>
+          <div class="post-metrics">
+            <span><i class="fas fa-heart"></i> 1.1K</span>
+            <span><i class="fas fa-comment"></i> 89</span>
+          </div>
+          <div class="post-link"><a href="./error.html">View</a></div>
+        </div>
+        <div class="post-item">
+          <div class="post-platform"><i class="fab fa-twitter"></i></div>
+          <div class="post-content">We're hiring! Check out our careers page.</div>
+          <div class="post-metrics">
+            <span><i class="fas fa-heart"></i> 540</span>
+            <span><i class="fas fa-retweet"></i> 210</span>
+          </div>
+          <div class="post-link"><a href="./error.html">View</a></div>
+        </div>
+        <div class="post-item">
+          <div class="post-platform"><i class="fab fa-linkedin"></i></div>
+          <div class="post-content">Our CEO's thoughts on industry trends in 2025</div>
+          <div class="post-metrics">
+            <span><i class="fas fa-heart"></i> 720</span>
+            <span><i class="fas fa-comment"></i> 45</span>
+          </div>
+          <div class="post-link"><a href="./error.html">View</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div>© 2025 YourApp, Inc.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Help</a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Followers growth chart (line)
+      const ctx1 = document.getElementById('followersChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [{
+            label: 'Followers (thousands)',
+            data: [820, 890, 940, 1010, 1080, 1150],
+            borderColor: '#26a9e0',
+            backgroundColor: 'rgba(38, 169, 224, 0.1)',
+            tension: 0.4,
+            fill: true,
+            pointBackgroundColor: '#26a9e0'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } }
+        }
+      });
+
+      // Engagement by platform (doughnut)
+      const ctx2 = document.getElementById('engagementChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: ['Facebook', 'Twitter', 'Instagram', 'LinkedIn', 'TikTok'],
+          datasets: [{
+            data: [2.1, 1.8, 4.2, 2.7, 5.8],
+            backgroundColor: ['#1877f2', '#1da1f2', '#e4405f', '#0077b5', '#010101'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } },
+          cutout: '60%'
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-family: "Nuninto Sana", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #e5e4e4;
+    position: relative;
+}
+
+body>a{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #26a9e0;
+    color: #fff;
+}
+
+section {
+    width: 45%;
+    padding: 20px;
+}
+
+.sectiom-top {
+    width: 100%;
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.sectiom-top>img {
+    width: 200px;
+}
+
+.sectiom-top>h3 {
+    font-size: 17.5px;
+    font-weight: 600;
+    color: #512c5b;
+}
+
+.section-bot {
+    min-width: 310px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #e9ebf2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.signin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signin-field>input {
+    padding: 0 22px;
+    border: 1px solid #eaecf3;
+    font-size: 14px;
+    height: 45px;
+}
+
+.signin-field>label {
+    font-size: 16px;
+    color: #62759d;
+    font-weight: 700;
+}
+
+.signin-rem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.signin-rem>nav>label {
+    font-size: 16px;
+    color: #62759d;
+    line-height: 24px;
+}
+
+.signin-rem>nav>label>p{
+    color: #26a9e0;
+    display: inline;
+}
+
+.signin-rem>nav>input{
+    margin-right: 5px;
+    border-radius: 0.25em;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.35em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.signin-rem>p{
+    color: #26a9e0;
+    font-size: 16px;
+}
+
+.section-bot>button{
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px 15px;
+    background-color: #26a9e0;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+}
+
+.section-bot>p{
+    font-size: 16px;
+    color: #62759d;
+}
+
+.section-bot>p>label{
+    color: #26a9e0;
+}
+
+/* signup */
+
+.section-bot>h3{
+    text-align: center;
+    font-size: 16px;
+    color: #62759d;
+    font-weight: 300;
+}
+
+.section-bot>h3>label{
+    color: #26a9e0;
+}
+
+@media (max-width:800px) {
+    section{
+        width: 90%;
+    }
+}
+
+@media (max-width:400px) {
+    body{
+        height: auto;
+    }
+    section{
+        width: 100%;
+    }
+    .section-bot {
+        min-width: 250px;
+    }
+}
+
+.signin-btn{
+    display: inline-block;
+    padding: 10px 25px;
+    background: #26a9e0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.signin-btn:hover{
+    background: #1f8fc0;
+}
+
+.signup-link{
+    color:#26a9e0;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link:hover{
+    text-decoration: underline;
+}
+
+.signup-btn{
+    display: inline-block;
+    padding: 10px 25px;
+    background: #26a9e0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.signup-btn:hover{
+    background: #838080;
+}
+
+.signin-link{
+    color:#26a9e0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signin-link:hover{
+    text-decoration: underline;
+}
+
+.submit-btn{
+    display: inline-block;
+    padding: 10px 25px;
+    background: #26a9e0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.submit-btn:hover{
+    background: #838080;
+}
+
+.resend-link{
+    color:#26a9e0;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.resend-link:hover{
+    text-decoration: underline;
+}

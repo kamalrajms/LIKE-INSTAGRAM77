@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./Signin2.css">
+    <link rel="stylesheet" href="./Signin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,18 +20,13 @@
 </head>
 
 <body>
-    
-<a href="./home2.html">Back</a>
+   <a href="./index.html">Back</a>
     <section>
         <div class="sectiom-top">
-            <img src="./stackly_logo_no_bg.webp" alt="">
-            <h3>Sign up to Social Media</h3>
+            <img src="./PHOTO1/stackly_logo_transparent.webp" alt="">
+            <h3>Login to your  Social Media</h3>
         </div>
-        <form action="./Error2.html" class="section-bot">
-            <div class="signin-field">
-                <label>Full Name</label>
-                <input type="text" required>
-            </div>
+        <form action="./error.html" class="section-bot">
             <div class="signin-field">
                 <label>Email</label>
                 <input type="email" required>
@@ -42,27 +37,19 @@
             </div>
             <div class="signin-rem">
                 <nav>
-                    <input type="checkbox" id="kkk" required>
-                    <label for="kkk">I certify that I am 18 years of age or older, and agree to the <p>User Agreement</p>
-                        and
-                        <p> Privacy Policy.</p>
-                    </label>
+                    <input type="checkbox" id="remember" required>
+                    <label for="remember">Remember me</label>
                 </nav>
-                <!-- <p>Forgot Password?</p> -->
+                <p><a href="./ForgetPassword.html" class="forgot-link">Forgot Password?</a></p>
             </div>
-            <button class="signup-btn">Sign Up</button>
+            <button class="signin-btn" type="submit">Sign In</button>
 
-            <h3>
-                <a href="./login2.html" class="signin-link">Sign In</a>
-                into your account
-            </h3>
-            <!-- <p>Don't have an account? <label for="">Sign up</label></p> -->
+            <p>
+                Don't have an account?
+                <a href="./SignUp.html" class="signup-link">Sign Up</a>
+            </p>
         </form>
-
     </section>
-
-
-
     <script>
         AOS.init({
             duration: 400,

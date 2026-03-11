@@ -90,7 +90,7 @@
                 </li>
 
                 <li><a href="./about1.html" class="header-mobile-nav-link ">ABOUT</a></li>
-                <li><a href="./feature1.css" class="header-mobile-nav-link ">FEATURES</a></li>
+                <li><a href="./feature1.html" class="header-mobile-nav-link ">FEATURES</a></li>
                 <li><a href="./dashboard1.html" class="header-mobile-nav-link ">DASHBOARD</a></li>
                 <li><a href="./contact1.html" class="header-mobile-nav-link ">CONTACT</a></li>
             </ul>
@@ -712,42 +712,13 @@
 
 
 
+<!-- ============================================
+     JAVASCRIPT
+============================================ -->
 
-
-
-// ==================home1 &home 2==============================
-
+<!-- // ================== Mobile Menu Toggle ================== -->
 <script>
-const dropDowns = document.querySelectorAll(".home-down");
-
-dropDowns.forEach(dropDown => {
-
-    dropDown.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        // get the parent li
-        const parentLi = this.closest(".home-menu");
-
-        // get the ul inside that li
-        const option = parentLi.querySelector("ul");
-
-        // toggle
-        if (option.style.display === "flex") {
-            option.style.display = "none";
-        } else {
-            option.style.display = "flex";
-        }
-    });
-
-});
-
-
-// ==================menu bar================================
-
-
-
-
- const menuToggle = document.querySelector(".header-menu-toggle");
+    const menuToggle = document.querySelector(".header-menu-toggle");
     const menuIcon = document.querySelector(".header-menu-icon");
     const closeIcon = document.querySelector(".header-close-icon");
     const sidebar = document.querySelector("aside");
@@ -763,86 +734,132 @@ dropDowns.forEach(dropDown => {
             closeIcon.style.display = "none";
         }
     });
-
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        // ===== SCROLL ANIMATIONS =====
-        var revealElements = document.querySelectorAll('.reveal');
-
-        var revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        revealElements.forEach(function(el) {
-            revealObserver.observe(el);
+<!-- // ================== Mobile Dropdown Menu ================== -->
+<script>
+    // Target the HOME dropdown in mobile menu
+    const mobileHomeDown = document.querySelector(".header-mobile-aside .home-down");
+    
+    if (mobileHomeDown) {
+        mobileHomeDown.addEventListener("click", function(e) {
+            e.preventDefault();
+            
+            // Find the parent li and then the dropdown ul
+            const parentLi = this.closest(".home-menu");
+            const dropdownUl = parentLi.querySelector(".header-mobile-option-ul");
+            
+            // Toggle display
+            if (dropdownUl.style.display === "flex" || dropdownUl.style.display === "block") {
+                dropdownUl.style.display = "none";
+            } else {
+                dropdownUl.style.display = "block";
+            }
+            
+            // Optional: Rotate the dropdown icon
+            const icon = this.querySelector("svg");
+            if (icon) {
+                icon.style.transform = dropdownUl.style.display === "block" ? "rotate(180deg)" : "rotate(0deg)";
+                icon.style.transition = "transform 0.3s ease";
+            }
         });
+    }
+    
+    // Alternative: If you want to handle multiple dropdowns (if you add more in future)
+    const mobileDropDowns = document.querySelectorAll(".header-mobile-aside .home-down");
+    mobileDropDowns.forEach(dropDown => {
+        dropDown.addEventListener("click", function(e) {
+            e.preventDefault();
+            
+            const parentLi = this.closest(".home-menu");
+            const option = parentLi.querySelector("ul");
+            
+            if (option.style.display === "flex" || option.style.display === "block") {
+                option.style.display = "none";
+            } else {
+                option.style.display = "block";
+            }
+            
+            // Toggle icon rotation
+            const icon = this.querySelector("svg");
+            if (icon) {
+                icon.style.transform = option.style.display === "block" ? "rotate(180deg)" : "rotate(0deg)";
+                icon.style.transition = "transform 0.3s ease";
+            }
+        });
+    });
+    
+    // Close mobile menu when clicking a link (optional)
+    const mobileNavLinks = document.querySelectorAll(".header-mobile-nav-link:not(.home-down)");
+    mobileNavLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            sidebar.classList.remove("active");
+            menuIcon.style.display = "block";
+            closeIcon.style.display = "none";
+        });
+    });
+</script>
 
-        // ===== PROGRESS BAR ANIMATION =====
-        var progressBar = document.getElementById('progressBar');
+<!-- // ================== Scroll Animations, Tabs, Slider, FAQ ================== -->
+<script>
+    // ===== SCROLL ANIMATIONS =====
+    var revealElements = document.querySelectorAll('.reveal');
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+    });
+
+    // ===== PROGRESS BAR ANIMATION =====
+    var progressBar = document.getElementById('progressBar');
+    if (progressBar) {
         setTimeout(function() {
             progressBar.style.width = '78%';
         }, 500);
+    }
 
-        // ===== TAB NAVIGATION =====
-        var tabLinks = document.querySelectorAll('.tab-nav a');
-        var tabContents = document.querySelectorAll('.tab-content');
+    // ===== TAB NAVIGATION =====
+    var tabLinks = document.querySelectorAll('.tab-nav a');
+    var tabContents = document.querySelectorAll('.tab-content');
 
-        tabLinks.forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                var tabId = this.getAttribute('data-tab');
+    tabLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var tabId = this.getAttribute('data-tab');
 
-                // Remove active from all tabs
-                tabLinks.forEach(function(t) { t.classList.remove('active'); });
-                tabContents.forEach(function(c) { c.classList.remove('active'); });
+            // Remove active from all tabs
+            tabLinks.forEach(function(t) { t.classList.remove('active'); });
+            tabContents.forEach(function(c) { c.classList.remove('active'); });
 
-                // Add active to clicked tab
-                this.classList.add('active');
-                document.getElementById('tab-' + tabId).classList.add('active');
+            // Add active to clicked tab
+            this.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
 
-                // Re-trigger reveal animations for new tab content
-                var newReveals = document.getElementById('tab-' + tabId).querySelectorAll('.reveal');
-                newReveals.forEach(function(el) {
-                    el.classList.remove('visible');
-                    setTimeout(function() {
-                        el.classList.add('visible');
-                    }, 100);
-                });
+            // Re-trigger reveal animations for new tab content
+            var newReveals = document.getElementById('tab-' + tabId).querySelectorAll('.reveal');
+            newReveals.forEach(function(el) {
+                el.classList.remove('visible');
+                setTimeout(function() {
+                    el.classList.add('visible');
+                }, 100);
             });
         });
+    });
 
-        // ===== TESTIMONIAL SLIDER =====
-        var slider = document.getElementById('slider');
-        var prevBtn = document.getElementById('prevBtn');
-        var nextBtn = document.getElementById('nextBtn');
-        var scrollAmount = 375;
+    // ===== TESTIMONIAL SLIDER =====
+    var slider = document.getElementById('slider');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var scrollAmount = 375;
 
+    if (prevBtn && nextBtn && slider) {
         prevBtn.addEventListener('click', function(e) {
             e.preventDefault();
             slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -852,12 +869,14 @@ dropDowns.forEach(dropDown => {
             e.preventDefault();
             slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
+    }
 
-        // ===== FAQ ACCORDION =====
-        var faqItems = document.querySelectorAll('.faq-item');
+    // ===== FAQ ACCORDION =====
+    var faqItems = document.querySelectorAll('.faq-item');
 
-        faqItems.forEach(function(item) {
-            var question = item.querySelector('.faq-question');
+    faqItems.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
+        if (question) {
             question.addEventListener('click', function() {
                 var isActive = item.classList.contains('active');
 
@@ -871,8 +890,13 @@ dropDowns.forEach(dropDown => {
                     item.classList.add('active');
                 }
             });
-        });
+        }
+    });
 </script>
+
+
+<!-- // ==================home1 &home 2============================== -->
+
 
 </body>
 </html>

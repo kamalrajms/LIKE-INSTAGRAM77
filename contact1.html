@@ -15,7 +15,23 @@
 
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    .header-dropdown-menu{
+display:none;
+}
 
+.header-dropdown-menu.show{
+display:block;
+}
+
+.header-mobile-option-ul{
+display:none;
+}
+
+.header-mobile-option-ul.show{
+display:block;
+}
+</style>
 
 <body>
 
@@ -30,14 +46,16 @@
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li class="header-nav-item header-home-menu">
-                        <a href="./index.html" class="header-nav-link header-home-down">
+                       <nav style="display: flex;justify-content: center;align-items: center;gap: 10px;"> 
+                            <a href="./index.html" class="header-nav-link header-home-down">
                             <p class="header-home-text">HOME</p>
-                            <svg class="header-dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                <path
-                                    d="M169.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 306.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-                            </svg>
-                        </a>
-                        <ul class="header-dropdown-menu" id="header-option">
+                            </a>
+                        <svg id="dropdown1" class=" header-dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path
+                                d="M169.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 306.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                        </svg>
+                    </nav>
+                        <ul class="header-dropdown-menu" id="header-option1">
                             <li class="header-dropdown-item"><a href="./index.html" class="header-dropdown-link">Home
                                     1</a></li>
                             <li class="header-dropdown-item"><a href="./home2.html" class="header-dropdown-link">Home
@@ -75,15 +93,18 @@
         <nav>
             <ul class="header-mobile-nav-list header-mobile-nav-item ">
                 <li  class="home-menu " >
-                    <a href="./index.html"  class="home-down header-mobile-nav-link header-mobile-nav-display-row">
-                        <p>HOME</p>
-                        <svg  xmlns="http://www.w3.org/2000/svg"
+                    <nav style="display: flex;justify-content: start;align-items: center;gap: 10px;">
+                        
+                        <a href="./index.html"  class="home-down header-mobile-nav-link header-mobile-nav-display-row">
+                            <p>HOME</p>
+                        </a>
+                        <svg style="width: 20px; fill: #fff;" id="dropdown2" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 384 512"><!--he!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                             <path
                                 d="M169.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 306.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
                         </svg>
-                    </a>
-                    <ul id="option2" class="header-mobile-option-ul">
+                    </nav>
+                    <ul class="header-mobile-option-ul" id="header-option2" >
                         <li><a href="./index.html" class="header-mobile-nav-link ">Home 1</a></li>
                         <li><a href="./home2.html" class="header-mobile-nav-link ">Home 2</a></li>
                     </ul>
@@ -482,33 +503,6 @@
     </footer>
 
     <script>
-const dropDowns = document.querySelectorAll(".home-down");
-
-dropDowns.forEach(dropDown => {
-
-    dropDown.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        // get the parent li
-        const parentLi = this.closest(".home-menu");
-
-        // get the ul inside that li
-        const option = parentLi.querySelector("ul");
-
-        // toggle
-        if (option.style.display === "flex") {
-            option.style.display = "none";
-        } else {
-            option.style.display = "flex";
-        }
-    });
-
-});
-
-
-// ==================menu bar================================
-
-
 
 
  const menuToggle = document.querySelector(".header-menu-toggle");
@@ -527,6 +521,22 @@ dropDowns.forEach(dropDown => {
             closeIcon.style.display = "none";
         }
     });
+
+const dropdown1 = document.getElementById("dropdown1");
+const headeroption1 = document.getElementById("header-option1");
+
+dropdown1.addEventListener("click", () => {
+    headeroption1.classList.toggle("show");
+});
+
+
+const dropdown2 = document.getElementById("dropdown2");
+const headeroption2 = document.getElementById("header-option2");
+
+dropdown2.addEventListener("click", () => {
+    headeroption2.classList.toggle("show");
+});
+
 
 </script>
 
